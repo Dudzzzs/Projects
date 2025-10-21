@@ -1,4 +1,5 @@
 from funcoes.controle_usuario import controle_usu
+from funcoes.controle_tarefas import controle_tarefas
 from menus import menus
 
 while True:
@@ -6,3 +7,4 @@ while True:
     
     if menu == False:
         break
+

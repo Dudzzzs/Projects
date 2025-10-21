@@ -4,7 +4,12 @@ import os
 def cadastro(nome_usu):
     try:
         with open(f'{nome_usu}.json', 'x') as arquivo:
-            json.dump({"id": 1}, arquivo)
+            estrutura_inicial = {
+                "id": 1,
+                "tarefas": []
+            }
+
+            json.dump(estrutura_inicial, arquivo, indent=4, ensure_ascii=True)
             print('\033[1;32mUsuário cadastrado com sucesso!\033[m')
     except FileExistsError:
         print('\033[1;31mEsse usuário já foi cadastrado.\033[m')
