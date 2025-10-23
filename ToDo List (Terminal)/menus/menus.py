@@ -16,15 +16,17 @@ def menu_princ():
                 while True:
                     verif = menu_tarefa(nome_usu)
                     
-                    if verif ==  False:
+                    if verif == False:
                         break
                 
         case 3:
             nome_usu = input('\033[1;34mQual usuário deseja excluir?\033[m\n')
             controle_usu.excluir(nome_usu)
+
         case 4:
             print('\033[1;31mPrograma finalizado!\033[m')
             return False
+        
         case _:
             print('\033[1;33mOpção inválida.\033[m')
 
@@ -35,6 +37,19 @@ def menu_tarefa(nome_usu):
         match menu_tarefa:
             case 1:
                 controle_tarefas.criar_tarefa(nome_usu)
+
+            case 2:
+                controle_tarefas.exibir_tarefas(nome_usu)
+
+            case 3:
+                controle_tarefas.editar_tarefa(nome_usu)
+
+            case 4:
+                controle_tarefas.concluir_tarefa(nome_usu)  
+
+            case 5:
+                controle_tarefas.excluir_tarefa(nome_usu)  
+                
             case 6:
                 print('\033[1;31mPrograma finalizado!\033[m')
                 return False
