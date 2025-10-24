@@ -2,6 +2,10 @@ from funcoes.controle_usuario import controle_usu
 from funcoes.controle_tarefas import controle_tarefas
 
 def menu_princ():
+    """
+        - Menu princiapl, controla os usuários.
+    """
+
     prog_princ = int(input('O que você deseja fazer hoje? \n1: Cadastrar usuário; \n2: Login; \n3: Excluir usuário; \n4: Finalizar programa. \n'))
 
     match prog_princ:
@@ -24,13 +28,19 @@ def menu_princ():
             controle_usu.excluir(nome_usu)
 
         case 4:
-            print('\033[1;31mPrograma finalizado!\033[m')
+            controle_tarefas.titulo('\033[1;31mPrograma finalizado!\033[m')
             return False
         
         case _:
-            print('\033[1;33mOpção inválida.\033[m')
+            controle_tarefas.titulo('\033[1;33mOpção inválida.\033[m')
+
 
 def menu_tarefa(nome_usu):
+        """
+            - Menu secundário, controla as tarefas.
+        """
+        
+        controle_tarefas.titulo(('\033[1;35mQual tarefa deseja executar?\033[m'))
 
         menu_tarefa = int(input('O que deseja fazer? \n1: Criar tarefa; \n2: Exibir tarefas; \n3: Editar tarefa; \n4: Concluir tarefa; \n5: Excluir tarefa; \n6: Finalizar programa.\n'))
 
@@ -51,7 +61,7 @@ def menu_tarefa(nome_usu):
                 controle_tarefas.excluir_tarefa(nome_usu)  
                 
             case 6:
-                print('\033[1;31mPrograma finalizado!\033[m')
+                controle_tarefas.titulo('\033[1;31mPrograma finalizado!\033[m')
                 return False
             case _:
-                print('\033[1;33mOpção inválida.\033[m')
+                controle_tarefas.titulo('\033[1;33mOpção inválida.\033[m')
